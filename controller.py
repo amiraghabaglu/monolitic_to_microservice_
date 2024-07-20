@@ -15,7 +15,7 @@ class AccountController:
         else:
             return True
     def inCorrect(self, user):
-        if user.getName() == "Amir" and user.getPass() == "Amir@031":
+        if user.getName() == "Amir" and user.getPass() == "*****":
             return True
         else:
             user.setMess("name or password is  correct")
