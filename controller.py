@@ -1,22 +1,30 @@
-#controller
-class AccountController:
-    def login(self, user):
-        if self.inValid(user):
-            if self.inCorrect(user):
-                user.setMess('login')
-                return True
-            else:
-                
-                return False
-    def inValid(self, user):
-        if user.getName() == "" and user.getPass() == "":
-            user.setMess("name or password is  invalid")
-            return False
-        else:
-            return True
-    def inCorrect(self, user):
-        if user.getName() == "Amir" and user.getPass() == "*****":
-            return True
-        else:
-            user.setMess("name or password is  correct")
-            return False
+from model2 import Register
+from view import show_items
+from login import Login
+
+def setup_routes(app):
+
+    r = Register()
+
+    r.set_address(input("Enter your address: "))
+    r.set_fname(input("Enter your fname: "))
+    r.set_lname(input("Enter your lname: "))
+    r.set_gender(input("Enter your gender: "))
+    r.set_username(input("Enter your username: "))
+    r.set_password(input("Enter your password: "))
+    r.set_parentage(input("Enter your parentage: "))
+
+    l = Login()
+
+  
+
+    result = l.login(r)
+
+    if result:
+        print(r.get_message())
+        @app.route("/")
+        def index():
+            return show_items(r)
+    else:
+        print(r.get_message()) 
+    
