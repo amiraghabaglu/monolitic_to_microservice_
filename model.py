@@ -1,20 +1,22 @@
-#model
-class Users:
-    def __init__(self):
-        self.name = ""
-        self.pas = ""
-        self.mess = ""
+class User:
+    def __init__(self) -> None:
+        self.__username = ''
+        self.__password = ''
+        self.__message  = ''
 
-    def setName(self, uname):
-        self.name = uname
-    def setPass(self, passw):
-        self.pas = passw
-    def setMess(self, messa):
-        self.mess = messa
+    # Getter Accessores
+    def get_username(self):
+        return self.__username
+    def get_password(self):
+        return self.__password
+    def get_message(self):
+        return self.__message
+    
+    # Setter Accessores
+    def set_username(self, param):
+        self.__username = param
+    def set_password(self, param):
+        self.__password = param
+    def set_message(self, param):
+        self.__message = param
 
-    def getName(self):
-        return self.name
-    def getPass(self):
-        return self.pas
-    def getMess(self):
-        return self.mess
